@@ -5,9 +5,9 @@ class Scraper
     @doc = Nokogiri::HTML(@response)
   end
   def get_hrefs
-    @doc.css("a").map { |href| href }
+    @doc.css("a").map { |href| href.get_attribute("href") }
   end
   def get_images
-    @doc.css("img").map { |href| href }
+    @doc.css("img").map { |href| href.get_attribute("src") }
   end
 end
